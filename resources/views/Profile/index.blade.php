@@ -14,7 +14,7 @@
                 <a href="{{route('post.create')}}" class="btn btn-sm btn-outline-primary">Add New Post</a>
             </div>
             <div class="d-flex align-items-center">
-                <div class="pr-4"><strong>122</strong> posts</div>
+                <div class="pr-4"><strong>{{$user->posts->count()}}</strong> posts</div>
                 <div class="pr-4"><strong>122</strong> followers</div>
                 <div class="pr-4"><strong>122</strong> following</div>
             </div>
@@ -31,17 +31,12 @@
     </div>
 
     <div class="row pt-5">
-        <div class="col-sm-4">
-            <img class="w-100" src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80" alt="">
-        </div>
-        <div class="col-sm-4">
-            <img class="w-100" src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="">
+        @foreach($user->posts as $post)
+            <div class="col-sm-4 pb-3">
+                <img class="w-100" src="/storage/{{$post->image}}" alt="">
+            </div>
+        @endforeach
 
-        </div>
-        <div class="col-sm-4">
-            <img class="w-100" src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=753&q=80" alt="">
-
-        </div>
     </div>
 </div>
 @endsection
