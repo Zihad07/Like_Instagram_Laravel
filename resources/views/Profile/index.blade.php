@@ -9,16 +9,23 @@
 
         <div class="col-sm-9 col-md-9 pt-5 pl-5">
 {{--            <div><h1>like-Instragram</h1></div>--}}
-            <div><h1>{{$user->username}}</h1></div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>{{$user->username}}</h1>
+                <a href="{{route('post.create')}}" class="btn btn-sm btn-outline-primary">Add New Post</a>
+            </div>
             <div class="d-flex align-items-center">
                 <div class="pr-4"><strong>122</strong> posts</div>
                 <div class="pr-4"><strong>122</strong> followers</div>
                 <div class="pr-4"><strong>122</strong> following</div>
             </div>
 
-            <div class="pt-4 font-weight-bold">likeInstagram</div>
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dolores.</div>
-            <div><a href="#">www.likeinstagram.com</a></div>
+            <div class="pt-4 font-weight-bold">
+                {{$user->profile->title}}
+            </div>
+            <div>
+                {{$user->profile->description}}
+            </div>
+            <div><a href="#">{{$user->profile->url}}</a></div>
 
         </div>
     </div>
