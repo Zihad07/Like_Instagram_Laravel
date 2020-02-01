@@ -13,6 +13,9 @@
                 <h1>{{$user->username}}</h1>
                 <a href="{{route('post.create')}}" class="btn btn-sm btn-outline-primary">Add New Post</a>
             </div>
+            <div>
+                <a href="{{route('profile.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit Profile</a>
+            </div>
             <div class="d-flex align-items-center">
                 <div class="pr-4"><strong>{{$user->posts->count()}}</strong> posts</div>
                 <div class="pr-4"><strong>122</strong> followers</div>
@@ -33,7 +36,10 @@
     <div class="row pt-5">
         @foreach($user->posts as $post)
             <div class="col-sm-4 pb-3">
-                <img class="w-100" src="/storage/{{$post->image}}" alt="">
+                <a href="{{route('post.show',$post->id)}}">
+                    <img class="w-100" src="/storage/{{$post->image}}" alt="">
+                </a>
+
             </div>
         @endforeach
 
