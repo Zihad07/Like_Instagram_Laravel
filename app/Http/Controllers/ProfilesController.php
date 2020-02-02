@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except('index');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth')->except('index');
+//    }
 //    public function index()
 //    {
 //        return view('home')->with('profileUser',auth()->user());
@@ -24,11 +24,13 @@ class ProfilesController extends Controller
 
         public function edit(User $user) {
 //            dd($user);
+            $this->authorize('update',$user->profile);
             return view('profile.edit',['user'=>$user]);
         }
 
-        public  function update(Request $request) {
+        public  function update(User $user, Request $request) {
 //            dd($request->all());
+            $this->authorize('update',$user->profile);
 
             $data = $request->validate([
                 'title' => 'required',

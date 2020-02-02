@@ -11,10 +11,16 @@
 {{--            <div><h1>like-Instragram</h1></div>--}}
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{$user->username}}</h1>
-                <a href="{{route('post.create')}}" class="btn btn-sm btn-outline-primary">Add New Post</a>
+
+                @can('update',$user->profile)
+                    <a href="{{route('post.create')}}" class="btn btn-sm btn-outline-primary">Add New Post</a>
+                @endcan
+
             </div>
             <div>
-                <a href="{{route('profile.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit Profile</a>
+                @can('update',$user->profile)
+                    <a href="{{route('profile.edit',$user->id)}}" class="btn btn-sm btn-primary">Edit Profile</a>
+                @endcan
             </div>
             <div class="d-flex align-items-center">
                 <div class="pr-4"><strong>{{$user->posts->count()}}</strong> posts</div>
