@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-3 p-5">
-            <img src="https://images.unsplash.com/photo-1505322747495-6afdd3b70760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80g" alt="" class="rounded-circle" height="200px" width="200px">
+            <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" height="200px" width="200px">
         </div>
 
         <div class="col-sm-9 col-md-9 pt-5 pl-5">

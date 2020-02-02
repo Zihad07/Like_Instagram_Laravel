@@ -8,6 +8,11 @@ class Profile extends Model
 {
     protected $guarded = [];
 
+    public function profileImage() {
+        $imagePath = ($this->image) ? $this->image :"profile/cHfIKjyh8ThHMUvmkMZHddbacJCmIegbjIe4GNB5.jpeg";
+
+        return "/storage/".$imagePath;
+    }
     public function user() {
         return $this->belongsTo(User::class);
     }
