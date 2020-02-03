@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/follow/{user}','FollowsController@store')->name('follow.user');
+//Route::post('/follow/{user}',function (){
+//    return ['success'];
+//});
+
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'ProfilesController@index')->name('home');
 Route::get('/profile/{user}','ProfilesController@index')->name('profile.show');
